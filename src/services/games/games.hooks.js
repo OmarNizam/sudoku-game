@@ -6,6 +6,8 @@ const joinGame = require('../../hooks/join-game');
 
 const checkWinner = require('../../hooks/check-winner');
 
+const populatePlayers = require('../../hooks/populate-players');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -18,7 +20,7 @@ module.exports = {
   },
 
   after: {
-    all: [],
+    all: [populatePlayers()],
     find: [],
     get: [],
     create: [],
