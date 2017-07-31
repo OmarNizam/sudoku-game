@@ -5,5 +5,30 @@
   "paginate": {
     "default": 10,
     "max": 50
-  }
+  },
+  "authentication": {
+    "secret": "28d22b732d0565dfcbcc6be4b087a7595d8f7d300ec1b447ee3c3c9deb9d9b8b182421e08434c5b96e19d042938ed729dd7b5a6d6acf08108af1153c51534d5163a2d6d7d0cf3be845b258896910b1bf1e46364b56ea3d5222940229dddee0ca83f8ea60f2d285ddb238d008025044a58e66c76155eb673693e05f9f89c3edbd72d2031e0f7118aedeb52d875679ad15876c980bb24a942eaa885dbc37b40d6e47ae19a23d842589e3edb02f4c8fed1f3048f9943ccd4cedeeafd7eb34671830c446d4b40b2c66d6c3c212a4bb72eadeeba56d1d9ece11a7cba38147edf444d75384ef52fb053eef53d29db2e895ed33ccc5d25b3b6f708f934df67e983f6045",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "mongodb": "mongodb://localhost:27017/sudoku_api"
 }
