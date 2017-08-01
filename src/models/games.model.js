@@ -8,18 +8,12 @@ module.exports = function (app) {
 
   const playerSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: 'users' },
-    paris: [String],
+    pairs: [String],
   });
-
-  const cellSchema = new Schema({
-    number: { type: Number, required: true },
-    visible: { type: Boolean, default: false },
-  });
-
 
   const games = new Schema({
     title: { type: String, required: true },
-    cells: [cellSchema],
+    cells: [String],
     players: [playerSchema],
     turn: { type: Number, default: 0 }, // player index
     winnerId: { type: Schema.Types.ObjectId, ref: 'users'},
