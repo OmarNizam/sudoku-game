@@ -5,9 +5,25 @@
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
+
+  const playerSchema = new Schema({
+    userId: { type: Schema.Types.ObjectId, ref: 'users' },
+    paris: [String],
+  });
+
+  const cellSchema = new Schema({
+    number: { type: Number, required: true },
+    visible: { type: Boolean, default: false },
+  });
+
+
   const games = new Schema({
     title: { type: String, required: true },
-    playerIds: [Schema.Types.ObjectId],
+    cells: [cellSchema],
+    players: [playerSchema],
+    turn: { type: Number, default: 0 }, // player index
+    winnerId: { type: Schema.Types.ObjectId, ref: 'users'},
+    userId: { type: Schema.Types.ObjectId, ref: 'users'},
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   });
