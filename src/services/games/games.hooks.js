@@ -11,14 +11,17 @@ const populatePlayers = require('../../hooks/populate-players');
 const gameStats = require('../../hooks/game-stats');
 
 
+const changeValue = require('../../hooks/change-value');
+
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
     create: [createGame()],
-    update: [joinGame(), checkWinner()],
-    patch: [joinGame(), checkWinner()],
+    update: [joinGame(), checkWinner(), changeValue()],
+    patch: [joinGame(), checkWinner(), changeValue()],
     remove: []
   },
 
