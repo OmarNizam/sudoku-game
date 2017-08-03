@@ -12,7 +12,7 @@ module.exports = function (app) {
   });
 
   const games = new Schema({
-    title: { type: String, required: true },
+    title: { type: String, required: false },
     cells: [String],
     players: [playerSchema],
     turn: { type: Number, default: 0 }, // player index

@@ -1,4 +1,5 @@
 const { authenticate } = require('feathers-authentication').hooks;
+const { restrictToAuthenticated } = require('feathers-authentication-hooks');
 
 const createGame = require('../../hooks/create-game');
 
@@ -12,7 +13,14 @@ const gameStats = require('../../hooks/game-stats');
 
 
 const changeValue = require('../../hooks/change-value');
-
+// const ownerSchema = {
+//   include: {
+//     service: 'users',
+//     nameAs: 'owner',
+//     parentField: 'userId',
+//     childField: '_id',
+//   }
+// };
 
 module.exports = {
   before: {
