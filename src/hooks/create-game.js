@@ -10,7 +10,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
 
     if (!hook.data) {
       hook.data = {
-        difficulty: 'easy'
+        difficulty: 'medium'
       };
     }
 
