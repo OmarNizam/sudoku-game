@@ -10,7 +10,6 @@ const populatePlayers = require('../../hooks/populate-players');
 
 const gameStats = require('../../hooks/game-stats');
 
-const errors = require('../../hooks/errors');
 
 module.exports = {
   before: {
@@ -18,8 +17,8 @@ module.exports = {
     find: [],
     get: [],
     create: [createGame()],
-    update: [joinGame(), checkWinner(), errors()],
-    patch: [joinGame(), checkWinner(), errors()],
+    update: [joinGame(), checkWinner()],
+    patch: [joinGame(), checkWinner()],
     remove: []
   },
 

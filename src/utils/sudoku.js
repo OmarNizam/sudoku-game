@@ -25,6 +25,7 @@ function checkSubset(array) {
     if (array[i].value !== null && nums.hasOwnProperty(array[i].value)) {
       array[i].hasConflict = true;
       array[nums[array[i].value]].hasConflict = true;
+
     }
     nums[array[i].value] = i;
   }
