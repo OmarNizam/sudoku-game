@@ -6,13 +6,23 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
 
+
+  // const cellSchema = new Schema({
+  //   cells: { type: Number, required: true },
+  //   visible: { type: Boolean, default: false },
+  //   won: { type: Boolean, default: false }
+  // })
+
+
+
+
   const playerSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: 'users' },
     pairs: [String],
   });
 
   const games = new Schema({
-    title: { type: String, required: false },
+
     cells: [String],
     players: [playerSchema],
     turn: { type: Number, default: 0 }, // player index
