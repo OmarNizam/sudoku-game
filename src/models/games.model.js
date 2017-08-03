@@ -23,7 +23,9 @@ module.exports = function (app) {
 
   const games = new Schema({
 
-    cells: [String],
+    title: { type: String, required: false },
+    cells: [],
+
     players: [playerSchema],
     turn: { type: Number, default: 0 }, // player index
     winnerId: { type: Schema.Types.ObjectId, ref: 'users'},

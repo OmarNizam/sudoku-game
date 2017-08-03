@@ -99,6 +99,7 @@ function boardToGame(board) {
 }
 
 function newBoard(difficulty) {
+
   const levelBoards = boards[difficulty];
   return levelBoards[Math.floor(Math.random() * (levelBoards.length + 1))];
 }
