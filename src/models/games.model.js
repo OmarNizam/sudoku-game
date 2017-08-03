@@ -22,6 +22,7 @@ module.exports = function (app) {
   });
 
   const games = new Schema({
+
     cells: [String],
     players: [playerSchema],
     turn: { type: Number, default: 0 }, // player index
