@@ -18,7 +18,7 @@ module.exports = function (app) {
 
   const playerSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: 'users' },
-    pairs: [String],
+    userName: { type: String, ref: 'users'},
   });
 
   const games = new Schema({
