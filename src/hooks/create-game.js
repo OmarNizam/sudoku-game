@@ -19,7 +19,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     // add the owner to the players, as the first player in the game
     hook.data.players = [{
       userId: user._id,
-      pairs: []
+  
     }];
 
     hook.data.cells = sudoku.createGame(hook.data.difficulty);
